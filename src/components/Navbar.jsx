@@ -14,7 +14,7 @@ export default function Navbar() {
                 const element = document.getElementById(section);
                 if (element) {
                     const offsetTop = element.offsetTop;
-                    if (window.scrollY >= offsetTop - 150) {
+                    if (window.scrollY >= offsetTop - 120) {
                         current = section;
                     }
                 }
@@ -36,16 +36,19 @@ export default function Navbar() {
     ];
 
     return (
-        <div className="fixed top-6 w-full flex justify-center z-50">
-            <div className="flex gap-8 px-8 py-4 rounded-full 
-                bg-white/10 backdrop-blur-xl 
-                border border-white/20 shadow-xl">
+        <div className="fixed top-2 md:top-6 left-0 w-full flex justify-center z-50 px-2">
+
+            <div className="flex w-full max-w-2xl justify-between md:justify-center 
+                gap-2 md:gap-8 px-3 md:px-8 py-2 md:py-4 rounded-full 
+                bg-black/30 backdrop-blur-xl 
+                border border-white/10 shadow-lg">
 
                 {navItems.map((item) => (
                     <a
                         key={item.id}
                         href={`#${item.id}`}
-                        className="relative text-sm font-medium text-purple-200 hover:text-white transition"
+                        className="relative text-xs md:text-sm font-medium 
+                        text-purple-200 hover:text-white transition whitespace-nowrap"
                     >
                         {item.label}
 
@@ -59,6 +62,7 @@ export default function Navbar() {
                         )}
                     </a>
                 ))}
+
             </div>
         </div>
     );
